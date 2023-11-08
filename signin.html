@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign-Up Form | Imtiyaz Hussain Project</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<body>
+    <div id="main-body">
+        <header id="main-header">
+            <h1> <i class='bx bx-log-in'></i>Enter the details to get back to the main Page </h1>
+        </header>
+
+        <div class="form-container">
+            <!-- <div class="left">
+                <a href="" id="google">Continue With Google <i class='bx bxl-google'></i></a>
+                <a href="" id="facebook">Continue with Facebook <i class='bx bxl-facebook'></i></a>
+                <a href="" id="github">Continue with Github <i class='bx bxl-github'></i></a>
+                <a href="" id="twitter">Continue with Twitter <i class='bx bxl-twitter'></i></a>
+                <a href="" id="instagram">Continue With Instagram <i class='bx bxl-instagram'></i></a>
+            </div> -->
+
+            <div class="right">
+                <div class="login-signup">
+                    <h1 id="signup"><a href="#">Sign Up</a></h1>
+                    <h1 id="login"><a href="login.html">Log In</a></h1>
+                </div>
+
+                <form id="formSection">
+                    <div>
+                        <label>Enter Your Name</label>
+                        <div class="f-l-name">
+                            <input type="text" placeholder="First Name" id="fname">
+                            <input type="text" placeholder="Last Name" id="lname">
+                        </div>
+                    </div>
+                    <!-- <div>
+                        <label>Enter Your Date of Birth</label>
+                        <input type="date" id="dob">
+                    </div> -->
+                    <!-- <div>
+                        <label>Enter Your Contact Number</label>
+                        <div>
+                            <input type="tel" placeholder="Phone" id="Cphone">
+                            <input type="tel" placeholder="WhatsApp" id="Wphone">
+                        </div>
+                    </div> -->
+                    <div>
+                        <label>Enter Your Email</label>
+                        <div>
+                            <input type="email" placeholder="Email" id="email">
+                            <input type="email" placeholder="Confirm Email" id="confirmEmail">
+                        </div>
+                    </div>
+                    
+
+                    <div>
+                        <label>Enter Your Password</label>
+                        <div>
+                            <input type="password" placeholder="Password" id="password">
+                            <input type="password" placeholder=" Confirm Password" id="confirmPassword">
+                        </div>
+                    </div>
+                    
+
+                    <div>
+                        <h3>Already Have An Account? <a href="login.html">Log In</a></h3>
+                        <button type="submit" id="submitButton">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+        import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCAlxujgVFAMAJC05s6kskN3fGp_6RE25g",
+            authDomain: "authenticationform-b3241.firebaseapp.com",
+            projectId: "authenticationform-b3241",
+            storageBucket: "authenticationform-b3241.appspot.com",
+            messagingSenderId: "51071151618",
+            appId: "1:51071151618:web:25b02b91f241bfb1b8c11b"
+        };
+
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        const auth = getAuth(app);
+
+        let fname = document.getElementById("fname");
+        let lname = document.getElementById("lname");
+        let email = document.getElementById("email");
+        let confirmEmail = document.getElementById("confirmEmail");
+        let password = document.getElementById("password");
+        let confirmPassword = document.getElementById("confirmPassword");
+
+
+        let RegisterUser = evt => {
+            evt.preventDefault();
+            createUserWithEmailAndPassword(auth, email.value, password.value)
+                .then((credentials) => {
+                    set(ref(db, 'UsersAuthList/' + credentials.user.uid), {
+                        firstname: fname.value,
+                        lastname: lname.value
+                    })
+                    alert("User Created!");
+                    if (alert) {
+                        window.location.href = 'login.html';
+                        alert("Kindly enter the details to enter the main page");
+                    }
+                })
+                .catch((error) => {
+                    alert(error.message);
+                    console.log(error.code);
+                    console.log(error.message);
+                })
+
+        }
+        formSection.addEventListener('submit', RegisterUser);
+    </script>
+
+
+</body>
+
+</html>

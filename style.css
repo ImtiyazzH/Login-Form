@@ -1,0 +1,299 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: black;
+}
+
+#main-body {
+    overflow-x: clip;
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#main-header {
+    width: 100%;
+    min-height: 8vh;
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+}
+
+#main-header h1 {
+    color: whitesmoke;
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    gap: 1rem;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+#main-header h1 i {
+    font-size: 3rem;
+    color: #4a2222;
+    margin: auto;
+}
+
+.form-container {
+    width: 100%;
+    margin: 25px auto;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.left {
+    width: 45%;
+    border: 7px solid rgb(97, 96, 96);
+    border-right: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.left a {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 90%;
+    background-color: rgb(152, 65, 65);
+    border: 2px solid black;
+    padding: 7px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    gap: 1rem;
+}
+
+.left a i {
+    font-size: 2rem;
+    color: rgb(29, 28, 28);
+}
+
+.right {
+    width: 45%;
+    border: 7px solid rgb(97, 96, 96);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.login-signup {
+    color: white;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.login-signup h1 {
+    width: 50%;
+    padding: 7px;
+    border-bottom: 7px solid rgb(97, 96, 96);
+    text-align: center;
+}
+.login-signup h1 a {
+    width: 50%;
+    padding: 7px;
+    text-align: center;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+#signup {
+    border-right: 7px solid rgb(97, 96, 96);
+    background-color: cadetblue;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+#login:hover {
+    background-color: rgb(50, 62, 62);
+    cursor: pointer;
+}
+
+#formSection {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 10px;
+}
+
+#formSection div {
+    display: flex;
+    flex-direction: column;
+}
+
+#formSection div label {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border: 2px solid grey;
+    border-bottom: none;
+    width: 100%;
+    display: block;
+    padding: 4px;
+    text-align: center;
+}
+
+#formSection div input {
+    background: transparent;
+    border: 2px solid grey;
+    font-size: 1.5rem;
+    width: 100%;
+    color: rgb(90, 88, 88);
+    padding: 5px;
+}
+
+#formSection div input:focus {
+    outline: none;
+    background: transparent;
+    color: rgb(94, 92, 92);
+}
+
+#formSection div div {
+    display: flex;
+    flex-direction: row;
+}
+
+.f-l-name input {
+    background: transparent;
+    border: 2px solid grey;
+    font-size: 1.5rem;
+    width: 50%;
+    color: rgb(90, 88, 88);
+    padding: 5px;
+}
+
+.f-l-name input:focus {
+    background: transparent;
+    outline: none;
+    color: rgb(98, 95, 95);
+}
+
+#submitButton {
+    padding: 5px;
+    font-weight: 800;
+    font-size: 1.8rem;
+    width: 45%;
+    margin: 0px auto 0.5rem;
+    background: rgb(166, 116, 55);
+    border-radius: 50px;
+    align-items: center;
+    border: none;
+}
+
+#submitButton:hover {
+    background: bisque;
+    cursor: pointer;
+}
+
+#formSection div h3 {
+    color: grey;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+    gap: 0.5rem;
+}
+
+#formSection div h3 a {
+    color: lavender;
+}
+
+
+@media (max-width : 900px) {
+    #main-header h1 {
+        font-size: 1.5rem;
+    }
+
+    #main-header h1 i {
+        font-size: 2.5rem;
+    }
+
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #formSection div label {
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    .login-signup h1 {
+        font-size: 1.5rem;
+    }
+
+    .left {
+        padding: 10px 5px;
+        width: 90%;
+        border: 7px solid rgb(97, 96, 96);
+        border-right: 7px solid rgb(97, 96, 96);
+        gap: 1rem;
+    }
+
+    .left a {
+        font-size: 1.1rem;
+        padding: 10px 2px;
+    }
+
+    .right {
+        margin-top: 15px;
+        width: 90%;
+        border: 7px solid rgb(97, 96, 96);
+    }
+}
+
+
+@media (max-width : 380px) {
+    #main-header h1 {
+        font-size: 1rem;
+    }
+
+    #main-header h1 i {
+        font-size: 2.5rem;
+    }
+
+    .left a {
+        width: 96%;
+        font-size: 0.8rem;
+        padding: 10px 2px;
+    }
+
+    #submitButton {
+        font-size: 1.5rem;
+        width: 75%;
+    }
+
+    #formSection div h3 {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+}
